@@ -1,0 +1,35 @@
+<h2>Listes des Users</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Date of birth</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone number</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.all.each do |user|%>
+  <tr>
+    <td>
+      <%= link_to(user) do %>
+        <%= user.first_name %>
+      <% end %>
+      </td>
+    <td><%= user.last_name%></td>
+    <td><%= user.date_of_birth%></td>
+    <td><%= user.email%></td>
+    <td><%= user.phone_number%></td>
+    <td>
+      <%= link_to [:edit, user], class: "btn btn-primary" do %>
+        Update
+      <% end %>
+    </td>
+  </tr>
+  <%end%>
+</tbody>
+
+</table>
